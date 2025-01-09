@@ -1,0 +1,36 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment folder
+venv/
+env/
+
+# Ignore Flask migrations folder (if you're using Flask-Migrate)
+migrations/
+
+# Ignore database file if you're using SQLite (or any other DB files)
+*.db
+*.sqlite3
+
+# Ignore Flask configuration or secret key file
+instance/
+*.env
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
+# Ignore log files
+*.log
+
+# Ignore the Flask app's instance folder for environment-specific configurations
+instance/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore any other sensitive or generated files
+*.DS_Store

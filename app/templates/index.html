@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Add Task Form -->
+    <div class="todo-form-container">
+        <form action="/add" method="POST" class="todo-form">
+            <input type="text" name="task" placeholder="Enter a new task" required>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+
+    <!-- Todo List -->
+    <ul class="todo-list">
+        {% for todo in todos %}
+            <li class="todo-item">
+                <!-- Task completion checkbox -->
+                <input type="checkbox" 
+                       {% if todo.complete %} checked {% endif %} 
+                       onchange="window.location.href='{{ url_for('main.complete', task_id=todo.id) }}'">
+                
+                <!-- Task text -->
+                <span class="{% if todo.complete %}completed{% endif %}">
+                    {{ todo.text }}
+                </span>
+                
+                <!-- Delete Task button -->
+                <a href="{{ url_for('main.delete', task_id=todo.id) }}" class="delete-btn">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
